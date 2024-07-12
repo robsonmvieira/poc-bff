@@ -24,22 +24,57 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Esse é um projeto de demo de conhecimento.
 
-## Installation
+Foi usada boas práticas como clean arch, solid, variáveis de ambiente, validação de inputs, formatação de output, docker, etc
+
+## Tecnologia usadas
+
+- Nestjs
+- Docker
+- Postrgres
+- Typeorm
+- Class Validator
+- Uuid
+- Jest
+- Redis
+- Docker-compose
+- Dotenvs
+
+## Clone o projeto
+
+ <p>Clone o projeto e navegue até a pasta do código clonado.</p>
+
+```bash
+$ git clone https://github.com/robsonmvieira/poc-bff
+```
+
+## Instalação
+
+ <p>É necessário ter o docker instalado na máquina.</p>
 
 ```bash
 $ npm install
 ```
 
-## Running the app
+## Rodando o projeto
+
+ <p>Crie um arquivo .env dentro da pasta env. Há um .env.example como base. </p>
+
+  <p>Na raiz do projeto, rode o comando para levantar os containers</p>
+
+```bash
+$ docker-compose up
+```
+
+  <p>Uma vez que os containers estejam rodando, pode usar os comandos abaixo para iniciar o projeto</p>
 
 ```bash
 # development
 $ npm run start
 
 # watch mode
-$ npm run start:dev
+$ npm run:dev
 
 # production mode
 $ npm run start:prod
@@ -62,11 +97,10 @@ $ npm run test:cov
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
-## Stay in touch
+## Produzido por
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- Author - [Robson Maia](https://github.com/robsonmvieira)
+- Linkedin - [Linkedin](https://www.linkedin.com/in/robsonmaia/)
 
 ## License
 
