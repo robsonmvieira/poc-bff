@@ -22,7 +22,7 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+## Descrição
 
 Esse é um projeto de demo de conhecimento.
 
@@ -40,6 +40,7 @@ Foi usada boas práticas como clean arch, solid, variáveis de ambiente, valida�
 - Redis
 - Docker-compose
 - Dotenvs
+- Swagger
 
 ## Clone o projeto
 
@@ -80,6 +81,15 @@ $ npm run:dev
 $ npm run start:prod
 ```
 
+## Documentação da API
+
+  <p>É possível ver os endpoints disponíveis na aplicação através do swagger. Ao rodar a aplicação, poder acessa na porta</p>
+
+```bash
+# no browser
+$ localhost:3001/docs
+```
+
 ## Test
 
 ```bash
@@ -98,6 +108,6 @@ $ npm run test:cov
 - Author - [Robson Maia](https://github.com/robsonmvieira)
 - Linkedin - [Linkedin](https://www.linkedin.com/in/robsonmaia/)
 
-## License
+## Licença
 
 Nest is [MIT licensed](LICENSE).
