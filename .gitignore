@@ -26,7 +26,7 @@ GoodLuckApi
 # Tests
 /coverage
 /.nyc_output
-
+/*.brun
 # IDEs and editors
 /.idea
 .project

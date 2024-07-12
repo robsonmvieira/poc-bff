@@ -11,7 +11,11 @@
       "legacyDecorator": true,
       "decoratorMetadata": true
     },
-    "baseUrl": "./src"
+    "baseUrl": "./",
+    "paths": {
+      "@modules/*": ["./src/modules/*"]
+    },
+    "keepClassNames": true
   },
   "minify": false
 }
