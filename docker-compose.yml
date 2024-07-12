@@ -10,20 +10,25 @@ services:
     container_name: app-bff
     restart: always
   db:
+    env_file:
+      - ./envs/.env
     platform: linux/x86_64
     image: postgres
     container_name: database-bff
+    restart: always
     ports:
       - '5434:5432'
 
     volumes:
       - .postgres_data:/var/lib/postgresql/data/
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=bffDb
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_DATABASE}
 
   redis:
+    env_file:
+      - ./envs/.env
     image: redis
     container_name: app-bff-redis
     restart: always
@@ -32,8 +37,7 @@ services:
     ports:
       - '6379:6379'
     environment:
-      - REDIS_PASSWORD=redis_password123
-    #command: ["redis-server", "--requirepass", "your_redis_password"]
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
 
 volumes:
   redis-data:

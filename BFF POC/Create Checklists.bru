@@ -1,0 +1,22 @@
+meta {
+  name: Create Checklists
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}checklists
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "check de tests",
+    "restrictionByStage": ["RJ", "SC"],
+    "finalDay": 30,
+    "initialDay": 1,
+    "finalDate": "2024-07-10T22:34:25.940Z",
+    "initialDate": "2024-04-06T22:42:56.976Z"
+  }
+}

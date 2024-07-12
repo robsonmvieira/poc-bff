@@ -7,7 +7,6 @@ import Joi from 'joi'
 import { join } from 'path'
 
 type DB_SCHEMA_TYPE = {
-  // DB_VENDOR: 'postgres' | 'mysql' | 'sqlite'
   DB_VENDOR: string
   DB_HOST: string
   DB_PORT: number
