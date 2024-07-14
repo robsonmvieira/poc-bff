@@ -3,6 +3,7 @@ import * as path from 'path'
 import * as fs from 'fs'
 import { ConfigService } from '@nestjs/config'
 import { Injectable } from '@nestjs/common'
+import { Model } from '@modules/core/domain/entities/model'
 
 const rootDir = path.resolve(__dirname, '../')
 const entities = []
@@ -18,8 +19,12 @@ function readModelsDir(dir) {
         // eslint-disable-next-line @typescript-eslint/no-var-requires
         const entityModule = require(filePath)
         Object.values(entityModule).forEach(entity => {
-          if (typeof entity === 'function') {
-            // Check if the export is a class (function)
+          if (
+            typeof entity === 'function' &&
+            entity.prototype instanceof Model &&
+            entity !== Model &&
+            entity.prototype.constructor.name !== 'Model'
+          ) {
             entities.push(entity)
           }
         })
@@ -45,7 +50,9 @@ export class DatabaseProvider {
       password: this.configService.get<string>('DB_PASSWORD'),
       database: this.configService.get<string>('DB_DATABASE'),
       entities,
-      synchronize: true
+      synchronize: this.configService.get<string>('NODE_ENV') !== 'production',
+      logging: this.configService.get<string>('NODE_ENV') === 'development',
+      migrations: [path.join(__dirname, 'migrations', '*{.ts,.js}')]
     })
   }
 }

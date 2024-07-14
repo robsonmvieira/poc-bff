@@ -42,4 +42,3 @@ GoodLuckApi
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-src/modules/game/application/controllers/game.controller.spec.ts

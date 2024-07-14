@@ -26,7 +26,7 @@
 
 Esse é um projeto de demo de conhecimento.
 
-Foi usada boas práticas como clean arch, solid, variáveis de ambiente, validação de inputs, formatação de output, docker, etc
+Foi usada boas práticas como clean arch, solid, variáveis de ambiente, validação de inputs, formatação de output, notification pattern, cache, migrations, docker, etc
 
 ## Tecnologia usadas
 
@@ -88,6 +88,30 @@ $ npm run start:prod
 ```bash
 # no browser
 $ localhost:3001/docs
+```
+
+## Desenvolvimento
+
+<p>Caso você tenha feito alguma mudança nas entidades e queira/precise adicionar ou alterar alguma dos models e entidades, você pode gerar uma migrations</p>
+<p>Como há uma pasta envs para seja fácil usar vários arquivos .envs, o comando das migrations é um pouco customizado.</p>
+<p>Há um arquivo(ormconfig.ts) responsável por carregar as variáveis de ambiente, uma vez que o script é rodado com a aplicação no chão e o módulo de config não está rodando.</p>
+
+<p>Esse exemplo é de uma criação de uma migration, onde ele vai criar dentro mais uma migrations dentro do módulo de database.
+Uma alternativa é navegar até a pasta e gerar lá a migration só passando o nome que deseja.
+</p>
+
+```bash
+# Exemplo de criação na raiz do projeto
+$ (grep -v '^#' envs/.env | xargs) && npm run typeorm -- -d ormconfig.ts migration:generate ./src/modules/database/migrations/CreateChecklist
+```
+
+### Rodar as Migrations
+
+ <p>Para rodar a migration criada</p>
+
+```bash
+# Exemplo de criação na raiz do projeto
+$ (grep -v '^#' envs/.env | xargs) && npm run typeorm -- -d ./ormconfig.ts migration:run
 ```
 
 ## Test
