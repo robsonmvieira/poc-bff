@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common'
 import { CheckListController } from './appication/controllers/checklist.controller'
 
-import { CheckListRepository } from './repositories/checklist.repository'
+import { TypeOrmCheckListRepository } from './repositories/typeorm-checklist.repository'
 import { DataSource } from 'typeorm'
 import { ChecklistModel } from './domain/models/checklist.model'
 import { DatabaseModule } from '@modules/database/database.module'
@@ -17,7 +17,7 @@ import { GetCheckListByIdUseCase } from './appication/use-cases/checklists/get-b
     {
       provide: 'IChecklistRepository',
       useFactory: (data: DataSource) =>
-        new CheckListRepository(data.getRepository(ChecklistModel)),
+        new TypeOrmCheckListRepository(data.getRepository(ChecklistModel)),
       inject: ['dbConnectionTypeOrm']
     },
     ListCheckListUseCase,
