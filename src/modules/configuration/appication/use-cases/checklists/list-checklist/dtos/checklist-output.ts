@@ -8,6 +8,7 @@ export type CheckListOutputConstructorProps = {
   finalDate: Date
   initialDay: number
   finalDay: number
+  useOneTime: boolean
 
   checkListItems: { description: string; score: number; isCrictical: boolean }[]
   id?: string
@@ -28,6 +29,7 @@ export class CheckListOutput {
   finalDate: Date
   initialDay: number
   finalDay: number
+  useOneTime: boolean
 
   checkListItems: { description: string; score: number; isCrictical: boolean }[]
   constructor({
@@ -43,7 +45,8 @@ export class CheckListOutput {
     finalDay,
     checkListItems,
     created_at,
-    updated_at
+    updated_at,
+    useOneTime
   }: CheckListOutputConstructorProps) {
     this.id = id
     this.created_at = created_at
@@ -57,7 +60,7 @@ export class CheckListOutput {
     this.finalDate = finalDate
     this.initialDay = initialDay
     this.finalDay = finalDay
-
+    this.useOneTime = useOneTime
     this.checkListItems = checkListItems
   }
 }

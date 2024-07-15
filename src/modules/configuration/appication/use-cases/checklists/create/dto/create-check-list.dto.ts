@@ -1,5 +1,6 @@
 import {
   IsArray,
+  IsBoolean,
   IsDate,
   IsNotEmpty,
   IsNumber,
@@ -19,6 +20,7 @@ export type CreateCheckListDtoProps = {
   finalDate: Date
   initialDay: number
   finalDay: number
+  useOneTime: boolean
   checkListItems: { description: string; score: number; isCrictical: boolean }[]
 }
 
@@ -79,6 +81,11 @@ export class CreateCheckListDto {
   @IsArray()
   checkListItems: { description: string; score: number; isCrictical: boolean }[]
 
+  @ApiProperty({ description: 'Use checklist Just one time ?' })
+  @IsNotEmpty()
+  @IsBoolean()
+  useOneTime: boolean
+
   constructor(props: CreateCheckListDtoProps) {
     if (!props) return
 
@@ -89,11 +96,11 @@ export class CreateCheckListDto {
     this.applyByRule = props.applyByRule
     this.initialDate = new Date(props.initialDate)
     this.restrictionByRegion = props.restrictionByRegion
-    // create date instance from string
     this.finalDate = new Date(props.finalDate)
     this.initialDay = props.initialDay
     this.finalDay = props.finalDay
     this.checkListItems = props.checkListItems
+    this.useOneTime = props.useOneTime
   }
 }
 

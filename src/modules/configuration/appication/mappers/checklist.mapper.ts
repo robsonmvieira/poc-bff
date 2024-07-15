@@ -29,6 +29,7 @@ export class CheckListMapper {
     return new ChecklistModel({
       ...entity,
       id: entity.id.toString(),
+
       checkListItems: entity.checkListItems.map(item => {
         return {
           description: item.description,

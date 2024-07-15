@@ -17,6 +17,7 @@ describe('Checklist Entity Unit Tests', () => {
       finalDate: new Date(),
       initialDay: chance.integer({ min: 1, max: 30 }),
       finalDay: chance.integer({ min: 1, max: 30 }),
+      useOneTime: chance.bool(),
       checkListItems: [
         new CheckListItem({
           description: chance.sentence(),
@@ -38,6 +39,7 @@ describe('Checklist Entity Unit Tests', () => {
       finalDate: new Date(),
       initialDay: chance.integer({ min: 1, max: 30 }),
       finalDay: chance.integer({ min: 1, max: 30 }),
+      useOneTime: chance.bool(),
       checkListItems: [
         new CheckListItem({
           description: chance.sentence(),
@@ -61,6 +63,7 @@ describe('Checklist Entity Unit Tests', () => {
       finalDate: new Date(),
       initialDay: chance.integer({ min: 1, max: 30 }),
       finalDay: chance.integer({ min: 1, max: 30 }),
+      useOneTime: chance.bool(),
       checkListItems: []
     })
     const checkListItem = new CheckListItem({
@@ -84,6 +87,7 @@ describe('Checklist Entity Unit Tests', () => {
       finalDate: new Date(),
       initialDay: chance.integer({ min: 1, max: 30 }),
       finalDay: chance.integer({ min: 1, max: 30 }),
+      useOneTime: chance.bool(),
       checkListItems: []
     })
     const checkListItem = new CheckListItem({
@@ -108,6 +112,7 @@ describe('Checklist Entity Unit Tests', () => {
       finalDate: new Date(),
       initialDay: chance.integer({ min: 1, max: 30 }),
       finalDay: chance.integer({ min: 1, max: 30 }),
+      useOneTime: chance.bool(),
       checkListItems: []
     })
     const checkListItem = new CheckListItem({

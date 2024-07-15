@@ -13,6 +13,7 @@ export type CreateChecklistCommand = {
   initialDay: number
   finalDay: number
   checkListItems: CheckListItem[]
+  useOneTime: boolean
 }
 
 export type CheckListProps = {
@@ -29,6 +30,7 @@ export type CheckListProps = {
   checkListItems: CheckListItem[]
   created_at?: Date
   updated_at?: Date
+  useOneTime: boolean
 }
 
 export class Checklist extends Entity {
@@ -43,6 +45,7 @@ export class Checklist extends Entity {
   finalDay: number
   isCrictical: boolean
   checkListItems: CheckListItem[]
+  useOneTime: boolean
 
   constructor({
     name,
@@ -57,7 +60,8 @@ export class Checklist extends Entity {
     checkListItems,
     id,
     created_at,
-    updated_at
+    updated_at,
+    useOneTime
   }: CheckListProps) {
     super(id, created_at, updated_at)
     this.name = name
@@ -70,6 +74,7 @@ export class Checklist extends Entity {
     this.initialDay = initialDay
     this.finalDay = finalDay
     this.checkListItems = checkListItems
+    this.useOneTime = useOneTime
   }
 
   static create(command: CreateChecklistCommand): Checklist {
@@ -83,7 +88,8 @@ export class Checklist extends Entity {
       finalDate: command.finalDate,
       initialDay: command.initialDay,
       finalDay: command.finalDay,
-      checkListItems: command.checkListItems
+      checkListItems: command.checkListItems,
+      useOneTime: command.useOneTime
     })
     return checklist
   }

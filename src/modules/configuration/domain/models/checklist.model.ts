@@ -11,6 +11,7 @@ export type CheckListProps = {
   finalDate: Date
   initialDay: number
   finalDay: number
+  useOneTime: boolean
 
   checkListItems: { description: string; score: number; isCrictical: boolean }[]
   id?: string
@@ -39,6 +40,9 @@ export class ChecklistModel extends Model {
   @Column({ type: 'int' })
   finalDay: number
 
+  @Column({ type: 'boolean', default: false })
+  useOneTime: boolean
+
   @Column({ type: 'jsonb' })
   checkListItems: { description: string; score: number; isCrictical: boolean }[]
 
@@ -54,5 +58,6 @@ export class ChecklistModel extends Model {
     this.initialDay = props?.initialDay
     this.finalDay = props?.finalDay
     this.checkListItems = props?.checkListItems
+    this.useOneTime = props?.useOneTime
   }
 }
